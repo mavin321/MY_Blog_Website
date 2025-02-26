@@ -1,3 +1,5 @@
+from django.conf.urls import handler404
+from .views import custom_404
 from . import views
 from django.urls import path
 
@@ -8,3 +10,5 @@ urlpatterns=[
     path('author-profile/', views.author, name='author'),
     path('contact/', views.contacts, name='contacts')
 ]
+
+handler404 = custom_404

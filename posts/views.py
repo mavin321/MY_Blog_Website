@@ -21,3 +21,7 @@ def details(request, pk):
 
 def contacts(request):
     return render(request, 'contact.html')
+
+
+def custom_404(request, exception):
+    return render(request, '404.html', {}, status=404)
