@@ -28,9 +28,10 @@
 
   <!-- Main CSS File -->
   <link href="{% static 'assets/css/main.css' %}" rel="stylesheet">
+
 </head>
 
-<body class="author-profile-page">
+<body class="blog-details-page">
 
   <header id="header" class="header position-relative">
     <div class="container-fluid container-xl position-relative">
@@ -69,90 +70,48 @@
 
   <main class="main">
 
-    <!-- Page Title -->
-    <div class="page-title">
+    <div class="container">
+      <div class="row">
 
-      <div class="title-wrapper">
-        <h1>Author Profile</h1>
-        <p>Hi, I’m Mavin—a back-end developer and data scientist passionate about building scalable systems with Python and Django. I explore data science and machine learning, constantly learning and sharing insights on software development. Welcome to my blog.</p>
-      </div>
-    </div><!-- End Page Title -->
+        <div class="col-lg-8">
 
-    <!-- Author Profile Section -->
-    <section id="author-profile" class="author-profile section">
+          <!-- Blog Details Section -->
+          <section id="blog-details" class="blog-details section" style="width: 120%; margin: 0 auto;">
+            <div class="container" data-aos="fade-up">
 
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
+              <article class="article">
+                <div class="article-content" data-aos="fade-up" data-aos-delay="100">
+                  <div class="content-header">
+                    <h1 class="title">My Journey into Software Development: Exploring Back-End Development, Data Science, and Machine Learning with Python</h1>
 
-        <div class="author-profile-1">
-
-          <div class="row">
-            <!-- Author Info -->
-            <div class="col-lg-4 mb-4 mb-lg-0">
-              <div class="author-card" data-aos="fade-up">
-                <div class="author-image">
-                  <img src="{% static 'assets/img/person/ME.jpg' %}" alt="Author" class="img-fluid rounded">
-                </div>
-
-                <div class="author-info">
-                  <h2>Mavin Peter</h2>
-                  <p class="designation">Blog Author</p>
-
-                  <div class="author-bio">
-                    Back-end developer specializing in Python and Django, with a keen interest in data science and machine learning. 
-                    Passionate about building scalable systems, exploring emerging technologies, and sharing insights through writing.
-                  </div>
-                  <div class="social-links">
-                    <a href="https://github.com/mavin321"><i class="bi bi-github"></i></a>
-                    <a href="https://www.linkedin.com/in/mavin-peter-65422725b/"><i class="bi bi-linkedin"></i></a>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Author Content -->
-            <div class="col-lg-8">
-              <div class="author-content" data-aos="fade-up" data-aos-delay="200">
-                <div class="content-header">
-                  <h3>About Me</h3>
-                </div>
-                <div class="content-body">
-                  <p>Hi, I’m Mavin—a passionate back-end developer specializing in Python and Django. My journey in software development has been driven by a love for solving complex problems and building scalable, efficient systems. I also explore data science and machine learning, constantly learning and applying new techniques to real-world challenges.
-
-                    Through this blog, I share insights, tutorials, and experiences in back-end development, data science, and programming in general. Whether you’re a beginner or an experienced developer, I hope you find valuable content that helps you grow in your coding journey.
-                    
-                    Let’s build, learn, and innovate together.
-                  </p>
-
-                  <div class="expertise-areas">
-                    <h4>Areas of Expertise</h4>
-                    <div class="tags">
-                      <span>Backend Development</span>
-                      <span>Data Science</span>
-                      <span>Python</span>
-                      <span>Machine Learning</span>
-                      <span>API development</span>
-                      <span>Future Tech Trends</span>
+                    <div class="author-info">
+                      <div class="post-meta">
+                        <span class="date"><i class="bi bi-calendar3"></i>Feb. 23, 2025, 10:46 p.m</span>
+                      </div>
                     </div>
                   </div>
+
+                  <div class="content">
+                    <p>
+                      just a placeholder for now
+                    </p>
+                  </div>
                 </div>
-              </div>
+              </article>
             </div>
-
-          </div>
-
+          </section><!-- /Blog Details Section -->
         </div>
-
       </div>
-
-    </section><!-- /Author Profile Section -->
+    </div>
 
   </main>
 
   <footer id="footer" class="footer">
+
     <div class="container footer-top">
       <div class="row gy-4">
         <div class="col-lg-4 col-md-6 footer-about">
-          <a href="index.html" class="logo d-flex align-items-center">
+          <a href="/" class="logo d-flex align-items-center">
             <span class="sitename">Mavin321</span>
           </a>
           <div class="footer-contact pt-3">
@@ -165,6 +124,7 @@
             <a href="https://www.linkedin.com/in/mavin-peter-65422725b/"><i class="bi bi-linkedin"></i></a>
           </div>
         </div>
+
         <div class="col-lg-2 col-md-3 footer-links">
           <h4>Useful Links</h4>
           <ul>
@@ -172,6 +132,8 @@
             <li><a href="author-profile/">About me</a></li>
           </ul>
         </div>
+
+
       </div>
     </div>
   </footer>

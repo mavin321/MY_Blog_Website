@@ -10,6 +10,10 @@ def author(request):
     return render(request, 'author-profile.html')
 
 
+def featured(request):
+    return render(request, 'featured-blog-details.html')
+
+
 def details(request, pk):
     posts=Post.objects.get(id=pk)
     return render(request, 'blog-details.html', {'posts': posts})
