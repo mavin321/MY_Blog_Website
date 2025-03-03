@@ -15,7 +15,7 @@ This blog is built to:
 
 ## 🌐 Live Website  
 
-Visit the blog: **Work In Progress**  
+Visit the blog: **mavinsblog.pythonanywhere.com**  
 
 ## 🛠️ Technologies Used  
 
