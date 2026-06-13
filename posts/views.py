@@ -129,7 +129,7 @@ def _featured_story():
 def index(request):
     posts = _all_posts()
     hero_post = posts[0] if posts else None
-    archive_posts = posts[1:] if hero_post else []
+    archive_posts = posts
     supporting_posts = posts[1:4] if len(posts) > 1 else []
 
     context = {
