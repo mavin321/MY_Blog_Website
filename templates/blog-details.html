@@ -39,7 +39,7 @@
       <div class="aside-card">
         <p class="eyebrow">Reading note</p>
         <h2>{{ post.category }}</h2>
-        <p>Written for focused, long-form reading with deliberate typography, spacing, and structure.</p>
+        <p>Written for focused, long-form reading on software, process, and design thinking with deliberate structure.</p>
       </div>
 
       <div class="aside-card">
@@ -50,8 +50,12 @@
       </div>
     </aside>
 
-    <article class="article-body reveal" data-article-body>
-      {{ post.content_html }}
+    <article class="article-body" data-article-body>
+      {% if post.content_html %}
+      {{ post.content_html|safe }}
+      {% else %}
+      {{ post.content|linebreaks }}
+      {% endif %}
     </article>
   </div>
 </section>
@@ -61,7 +65,7 @@
     <div class="tail-panel reveal">
       <p class="eyebrow">Continue exploring</p>
       <h2>The best articles invite the next thought.</h2>
-      <p>Move through the archive, revisit the journal, or reach out if the ideas here connect with your work.</p>
+      <p>Move through the archive, revisit the journal, or reach out if these ideas on software, process, and design connect with your work.</p>
       <div class="tail-panel__actions">
         <a href="{% url 'index' %}" class="button button--secondary">Browse the archive</a>
         <a href="{% url 'contacts' %}" class="button button--primary">Get in touch</a>

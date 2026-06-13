@@ -16,39 +16,44 @@ MARKDOWN_EXTENSIONS = ["fenced_code", "tables", "toc"]
 WORDS_PER_MINUTE = 220
 
 FEATURED_STORY = {
-    "title": "My Journey into Software Development: Exploring Back-End Development, Data Science, and Machine Learning with Python",
+    "title": "Why This Journal Connects Software Engineering, Chemical and Process Engineering, and Design Engineering",
     "category": "Editorial Note",
     "date": datetime(2025, 2, 23, 22, 46),
     "image_url": "assets/img/blog/featuredblog.png",
     "content": """
-Software development has always fascinated me because it turns curiosity into systems, experiments, and useful tools.
+This journal is built around a simple belief: strong engineering thinking travels well across disciplines.
 
-Python became the foundation for that journey. Its clarity made it easier to learn programming fundamentals, but its ecosystem made it possible to move far beyond the basics. The same language let me build web applications, explore data, and prototype machine learning ideas without constantly switching mental models.
+Software engineering shapes how digital systems are designed, tested, and maintained. Chemical and process engineering brings the discipline of flow, constraints, safety, optimization, and real-world operations. Design engineering adds the ability to turn abstract requirements into deliberate, usable, high-quality solutions.
 
-## Why back-end work clicked for me
+## Why these fields belong together
 
-Back-end development felt like learning how digital products truly think. Designing APIs, modeling data, and building logic that remains reliable under real usage taught me to value structure over shortcuts.
+Each discipline asks similar core questions:
 
-Working with Django sharpened that instinct. It gave me a framework for building complete applications with authentication, data relationships, administration tools, and clean routing.
+- How should a system be structured?
+- What constraints matter most?
+- Where can failure happen?
+- How do we improve performance without losing reliability?
+- What does good design look like under real operating conditions?
 
-> The part I enjoy most is building systems that feel calm under complexity.
+That overlap is exactly what makes this space interesting.
 
-## Expanding into data science
+## Software engineering as a systems discipline
 
-After learning how to build applications, I wanted to understand how to learn from the information those systems create. That led me into data analysis, visualization, and experimentation with predictive models.
+Software engineering here is not only about code. It is about architecture, quality, maintainability, modeling, documentation, and decision-making. It is about building systems that can evolve without collapsing under complexity.
 
-Data science added a different discipline. Instead of only asking whether software works, I also had to ask whether the evidence is sound, whether patterns are meaningful, and whether the output deserves trust.
+## Chemical and process engineering as operational thinking
 
-## What keeps the work interesting
+Chemical and process engineering introduces a sharper awareness of process behavior, throughput, efficiency, control, safety, and optimization. It is an engineering mindset grounded in how systems behave over time, not just how they look on paper.
 
-The overlap between engineering and data is where the work feels most alive:
+## Design engineering as translation
 
-- building useful products
-- measuring what matters
-- improving decisions with evidence
-- learning continuously across disciplines
+Design engineering is where requirements become intentional form. It bridges technical possibility with usability, manufacturability, clarity, and experience. It asks whether a solution is not only correct, but coherent.
 
-That mix is why this blog exists. It is a place for writing about back-end systems, software craftsmanship, experiments with data, and the ideas that connect them.
+> The most interesting work happens when software logic, process discipline, and design judgment reinforce each other.
+
+## What this blog is for
+
+This is a place for writing about software systems, process thinking, engineering design, technical decision-making, and the patterns that connect digital and physical problem-solving.
 """,
 }
 
@@ -138,7 +143,7 @@ def index(request):
         "post_count": len(posts),
         "category_count": len({post.category for post in posts}),
         "page_title": "Mavin's Blog",
-        "page_description": "A thoughtful technical journal on back-end systems, data, machine learning, and software craftsmanship.",
+        "page_description": "A thoughtful technical journal on software engineering, chemical and process engineering, design engineering, and systems thinking.",
     }
     return render(request, "index.html", context)
 
@@ -150,7 +155,7 @@ def author(request):
         {
             "active_page": "author",
             "page_title": "Author Profile | Mavin's Blog",
-            "page_description": "Learn more about Mavin Peter, a back-end developer and data-focused builder writing about systems, software, and ideas.",
+            "page_description": "Learn more about Mavin Peter and the engineering perspective behind the journal on software, process, and design.",
         },
     )
 
@@ -207,7 +212,7 @@ def contacts(request):
         {
             "active_page": "contact",
             "page_title": "Contact | Mavin's Blog",
-            "page_description": "Reach out to Mavin Peter for collaborations, questions, or conversations around software, data, and product thinking.",
+            "page_description": "Reach out to Mavin Peter for conversations around software engineering, process engineering, design engineering, and systems thinking.",
         },
     )
 
