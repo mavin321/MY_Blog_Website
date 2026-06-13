@@ -1,201 +1,189 @@
+{% extends "base.html" %}
 {% load static %}
 
-<!DOCTYPE html>
-<html lang="en">
+{% block content %}
+<section class="home-hero section-space">
+  <div class="shell-container">
+    <div class="home-hero__grid">
+      <div class="home-hero__intro reveal">
+        <p class="eyebrow">Thoughtful technical writing</p>
+        <h1>Elegant notes on software systems, product thinking, data, and experiments worth remembering.</h1>
+        <p class="hero-copy">
+          This journal collects essays, technical reflections, and practical lessons from building with Python, Django,
+          machine learning, and calm engineering discipline.
+        </p>
 
-<head>
-  <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>Mavin's Blog</title>
-  <meta name="description" content="">
-  <meta name="keywords" content="">
+        <div class="hero-actions">
+          {% if hero_post %}
+          <a href="{% url 'details' hero_post.id %}" class="button button--primary">Read the latest article</a>
+          {% endif %}
+          <a href="#archive" class="button button--secondary">Browse the archive</a>
+        </div>
 
-  <!-- Favicons -->
-  <link href="{% static 'assets/img/favicon.jpg' %}" rel="icon">
-  <link href="{% static 'assets/img/favicon.jpg' %}" rel="apple-touch-icon">
-
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com" rel="preconnect">
-  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="st">
-  <!-- Vendor CSS Files -->
-  <link href="{% static 'assets/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
-  <link href="{% static 'assets/vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
-  <link href="{% static 'assets/vendor/aos/aos.css' %}" rel="stylesheet">
-  <link href="{% static 'assets/vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
-  <link href="{% static 'assets/vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet">
-
-  <!-- Main CSS File -->
-  <link href="{% static 'assets/css/main.css' %}" rel="stylesheet">
-
-</head>
-
-<body class="index-page">
-  <header id="header" class="header position-relative">
-    <div class="container-fluid container-xl position-relative">
-
-      <div class="top-row d-flex align-items-center justify-content-between">
-        <a href="/" class="logo d-flex align-items-end">
-          <img src="{% static 'assets/img/logo.png' %}" alt="">
-          <h1 class="sitename">Mavins blog</h1><span>.</span>
-        </a>
-
-        <div class="d-flex align-items-center">
-          <div class="social-links">
-            <a href="https://github.com/mavin321"><i class="bi bi-github"></i></a>
-            <a href="https://www.linkedin.com/in/mavin-peter-65422725b/"><i class="bi bi-linkedin"></i></a>
+        <div class="hero-stats">
+          <div class="stat-card reveal">
+            <span>{{ post_count }}</span>
+            <small>Published posts</small>
+          </div>
+          <div class="stat-card reveal">
+            <span>{{ category_count }}</span>
+            <small>Editorial themes</small>
+          </div>
+          <div class="stat-card reveal">
+            <span>Long-form</span>
+            <small>Built for focused reading</small>
           </div>
         </div>
       </div>
 
-    </div>
-
-    <div class="nav-wrap">
-      <div class="container d-flex justify-content-center position-relative">
-        <nav id="navmenu" class="navmenu">
-          <ul>
-            <li><a href="/" class="active">Home</a></li>
-            <li><a href="author-profile/">Author Profile</a></li>
-           
-            <li><a href="contact/">Contact</a></li>
-          </ul>
-          <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
-        </nav>
-      </div>
-    </div>
-
-  </header>
-
-  <main class="main">
-    <!-- Section Title -->
-    <div class="container section-title" data-aos="fade-up">
-      <div><span>Welcome to</span> <span class="description-title">My Blog</span></div>
-    </div><!-- End Section Title -->
-
-    <!-- Blog Hero Section -->
-    <section id="blog-hero" class="blog-hero section">
-
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
-
-        <div class="blog-grid">
-
-          <!-- Featured Post (Large) -->
-          <article class="blog-item featured" data-aos="fade-up">
-            <img src="{% static 'assets/img/blog/featuredblog.png' %}" alt="Blog Image" class="img-fluid">
-            <div class="blog-content">
-              <div class="post-meta">
-                <span class="date">Feb. 23, 2025, 10:46 p.m</span>
-                <span class="category">Career & Learning</span>
-              </div>
-              <h2 class="post-title">
-                <a href="blog-details/featured" title="My Journey into Software Development: Exploring Back-End Development, Data Science, and Machine Learning with Python"  >My Journey into Software Development: Exploring Back-End Development, Data Science, and Machine Learning with Python</a>
-              </h2>
-            </div>
-          </article><!-- End Featured Post -->
-
-          {% for post in posts reversed %}
-          <!-- Regular Posts -->
-          <article class="blog-item" data-aos="fade-up" data-aos-delay="100">
-            <img src="/static/assets/img/blog/blogitem{{ post.image }}.jpg" alt="Blog Image" class="img-fluid">
-            <div class="blog-content">
-              <div class="post-meta">
-                <span class="date">{{ post.date }}</span>
-                <span class="category">{{ post.category }}</span>
-              </div>
-              <h3 class="post-title">
-                <a href="blog-details/{{post.id}}" title="{{ post.title }}">{{ post.title }}</a>
-              </h3>
-            </div>
-          </article><!-- End Blog Item -->
-          {% endfor %}
-        </div>
-
-      </div>
-
-    </section><!-- /Blog Hero Section -->
-
-    
-
-    </section><!-- /Latest Posts Section -->
-
-    <!-- Call To Action Section -->
-    <section id="call-to-action" class="call-to-action section">
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
-        <div class="row gy-4 justify-content-between align-items-center">
-          <div class="col-lg-6">
-            <div class="cta-content" data-aos="fade-up" data-aos-delay="200">
-              <h2>Subscribe to our newsletter</h2>
-              <p>Never miss a post! Subscribe to my newsletter for deep dives into Python, Django, and back-end development trends. Get exclusive coding insights, project breakdowns, and practical tips delivered straight to your inbox—no spam, just valuable content to keep you ahead in tech!.</p>
-              <form action="forms/newsletter.php" method="post" class="php-email-form cta-form" data-aos="fade-up" data-aos-delay="300">
-                <div class="input-group mb-3">
-                  <input type="email" class="form-control" placeholder="Email address..." aria-label="Email address" aria-describedby="button-subscribe">
-                  <button class="btn btn-primary" type="submit" id="button-subscribe">Subscribe</button>
-                </div>
-                <div class="loading">Loading</div>
-                <div class="error-message"></div>
-                <div class="sent-message">Your subscription request has been sent. Thank you!</div>
-              </form>
-            </div>
+      <div class="home-hero__spotlight reveal">
+        {% if hero_post %}
+        <article class="spotlight-card">
+          <div class="spotlight-card__meta">
+            <span>{{ hero_post.category }}</span>
+            <span>{{ hero_post.formatted_date }}</span>
+            <span>{{ hero_post.reading_time }} min read</span>
           </div>
-          <div class="col-lg-4">
-            <div class="cta-image" data-aos="zoom-out" data-aos-delay="200">
-              <img src="{% static 'assets/img/cta/cta1.jpg' %}" alt="" class="img-fluid">
-            </div>
-          </div>
-        </div>
-      </div>
-    </section><!-- /Call To Action Section -->
-
-  </main>
-
-  <footer id="footer" class="footer">
-
-    <div class="container footer-top">
-      <div class="row gy-4">
-        <div class="col-lg-4 col-md-6 footer-about">
-          <a href="/" class="logo d-flex align-items-center">
-            <span class="sitename">Mavin321</span>
+          <h2>{{ hero_post.title }}</h2>
+          <p>{{ hero_post.subtitle }}</p>
+          <a href="{% url 'details' hero_post.id %}" class="text-link">
+            Continue reading
+            <i class="bi bi-arrow-up-right"></i>
           </a>
-          <div class="footer-contact pt-3">
-            <p>Nairobi, Kenya</p>
-            <p class="mt-3"><strong>Phone:</strong> <span>+254 714128700 </span></p>
-            <p><strong>Email:</strong> <span>mavinpeteromondi@gmail.com</span></p>
+        </article>
+        {% endif %}
+
+        <article class="editorial-card reveal">
+          <img src="{% static featured_story.image_url %}" alt="{{ featured_story.title }}">
+          <div class="editorial-card__content">
+            <p class="eyebrow">Featured essay</p>
+            <h3>{{ featured_story.title }}</h3>
+            <p>{{ featured_story.excerpt }}</p>
+            <a href="{% url 'featured' %}" class="text-link">
+              Read the editorial note
+              <i class="bi bi-arrow-up-right"></i>
+            </a>
           </div>
-          <div class="social-links d-flex mt-4">
-            <a href="https://github.com/mavin321"><i class="bi bi-github"></i></a>
-            <a href="https://www.linkedin.com/in/mavin-peter-65422725b/"><i class="bi bi-linkedin"></i></a>
-          </div>
-        </div>
-
-        <div class="col-lg-2 col-md-3 footer-links">
-          <h4>Useful Links</h4>
-          <ul>
-            <li><a href="https://mavin321.pythonanywhere.com">My website</a></li>
-            <li><a href="author-profile/">About me</a></li>
-          </ul>
-        </div>
-
-
+        </article>
       </div>
     </div>
-  </footer>
+  </div>
+</section>
 
-  <!-- Scroll Top -->
-  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+<section class="curated-strip">
+  <div class="shell-container">
+    <div class="section-heading reveal">
+      <div>
+        <p class="eyebrow">Recent highlights</p>
+        <h2>Fresh writing from the archive.</h2>
+      </div>
+      <p class="section-copy">A fast way into the latest threads: engineering practice, learning, and technical craft.</p>
+    </div>
 
-  <!-- Preloader -->
-  <div id="preloader"></div>
+    <div class="mini-posts">
+      {% for post in supporting_posts %}
+      <article class="mini-post reveal">
+        <p class="mini-post__meta">{{ post.category }} · {{ post.reading_time }} min</p>
+        <h3><a href="{% url 'details' post.id %}">{{ post.title }}</a></h3>
+        <p>{{ post.excerpt }}</p>
+      </article>
+      {% empty %}
+      <article class="mini-post reveal">
+        <p class="mini-post__meta">Archive in progress</p>
+        <h3>More essays are on the way.</h3>
+        <p>The journal will grow here with new technical notes, experiments, and long-form writing.</p>
+      </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>
 
-  <!-- Vendor JS Files -->
-  <script src="{% static 'assets/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
-  <script src="{% static 'assets/vendor/php-email-form/validate.js' %}"></script>
-  <script src="{% static 'assets/vendor/aos/aos.js' %}"></script>
-  <script src="{% static 'assets/vendor/swiper/swiper-bundle.min.js' %}"></script>
-  <script src="{% static 'assets/vendor/purecounter/purecounter_vanilla.js' %}"></script>
-  <script src="{% static 'assets/vendor/glightbox/js/glightbox.min.js' %}"></script>
+<section class="archive section-space" id="archive">
+  <div class="shell-container">
+    <div class="archive-toolbar reveal">
+      <div class="section-heading section-heading--compact">
+        <div>
+          <p class="eyebrow">Editorial archive</p>
+          <h2>Browse every post with room to think.</h2>
+        </div>
+      </div>
 
-  <!-- Main JS File -->
-  <script src="{% static 'assets/js/main.js' %}"></script>
-</body>
+      <div class="filter-row" data-filter-group>
+        <button class="filter-chip is-active" type="button" data-filter="all">All <span>{{ post_count }}</span></button>
+        {% for category in categories %}
+        <button class="filter-chip" type="button" data-filter="{{ category.slug }}">
+          {{ category.name }}
+          <span>{{ category.count }}</span>
+        </button>
+        {% endfor %}
+      </div>
+    </div>
 
-</html>
+    <div class="post-grid" data-filter-targets>
+      {% for post in archive_posts %}
+      <article class="post-card reveal" data-category="{{ post.category_slug }}">
+        <a href="{% url 'details' post.id %}" class="post-card__image">
+          <img src="{% static post.image_url %}" alt="{{ post.title }}">
+        </a>
+        <div class="post-card__body">
+          <div class="post-card__meta">
+            <span>{{ post.category }}</span>
+            <span>{{ post.formatted_date }}</span>
+            <span>{{ post.reading_time }} min read</span>
+          </div>
+          <h3><a href="{% url 'details' post.id %}">{{ post.title }}</a></h3>
+          <p>{{ post.excerpt }}</p>
+          <a href="{% url 'details' post.id %}" class="text-link">
+            Read article
+            <i class="bi bi-arrow-up-right"></i>
+          </a>
+        </div>
+      </article>
+      {% empty %}
+      {% if hero_post %}
+      <article class="post-card reveal" data-category="{{ hero_post.category_slug }}">
+        <a href="{% url 'details' hero_post.id %}" class="post-card__image">
+          <img src="{% static hero_post.image_url %}" alt="{{ hero_post.title }}">
+        </a>
+        <div class="post-card__body">
+          <div class="post-card__meta">
+            <span>{{ hero_post.category }}</span>
+            <span>{{ hero_post.formatted_date }}</span>
+            <span>{{ hero_post.reading_time }} min read</span>
+          </div>
+          <h3><a href="{% url 'details' hero_post.id %}">{{ hero_post.title }}</a></h3>
+          <p>{{ hero_post.excerpt }}</p>
+          <a href="{% url 'details' hero_post.id %}" class="text-link">
+            Read article
+            <i class="bi bi-arrow-up-right"></i>
+          </a>
+        </div>
+      </article>
+      {% else %}
+      <article class="empty-state reveal">
+        <p class="eyebrow">Archive empty</p>
+        <h3>No posts have been published yet.</h3>
+        <p>When articles are added, they will appear here in a clean, readable editorial archive.</p>
+      </article>
+      {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="cta-panel section-space">
+  <div class="shell-container">
+    <div class="cta-panel__card reveal">
+      <div>
+        <p class="eyebrow">Open for thoughtful work</p>
+        <h2>Interested in collaborating on engineering, writing, or product ideas?</h2>
+      </div>
+      <p>
+        If something here resonates, reach out. I am always interested in conversations around back-end systems,
+        technical storytelling, data-informed products, and high-quality software craft.
+      </p>
+      <a href="{% url 'contacts' %}" class="button button--primary">Start a conversation</a>
+    </div>
+  </div>
+</section>
+{% endblock %}

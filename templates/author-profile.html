@@ -1,198 +1,68 @@
+{% extends "base.html" %}
 {% load static %}
 
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-  <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>Mavin's Blog</title>
-  <meta name="description" content="">
-  <meta name="keywords" content="">
-
-  <!-- Favicons -->
-  <link href="{% static 'assets/img/favicon.jpg' %}" rel="icon">
-  <link href="{% static 'assets/img/favicon.jpg' %}" rel="apple-touch-icon">
-
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com" rel="preconnect">
-  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-
-  <!-- Vendor CSS Files -->
-  <link href="{% static 'assets/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
-  <link href="{% static 'assets/vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
-  <link href="{% static 'assets/vendor/aos/aos.css' %}" rel="stylesheet">
-  <link href="{% static 'assets/vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
-  <link href="{% static 'assets/vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet">
-
-  <!-- Main CSS File -->
-  <link href="{% static 'assets/css/main.css' %}" rel="stylesheet">
-</head>
-
-<body class="author-profile-page">
-
-  <header id="header" class="header position-relative">
-    <div class="container-fluid container-xl position-relative">
-
-      <div class="top-row d-flex align-items-center justify-content-between">
-        <a href="/" class="logo d-flex align-items-end">
-          <img src="{% static 'assets/img/logo.png' %}" alt="">
-          <h1 class="sitename">Mavins blog</h1><span>.</span>
-        </a>
-
-        <div class="d-flex align-items-center">
-          <div class="social-links">
-            <a href="https://github.com/mavin321"><i class="bi bi-github"></i></a>
-            <a href="https://www.linkedin.com/in/mavin-peter-65422725b/"><i class="bi bi-linkedin"></i></a>
-          </div>
-        </div>
-      </div>
-
+{% block content %}
+<section class="page-hero section-space">
+  <div class="shell-container page-hero__grid">
+    <div class="page-hero__copy reveal">
+      <p class="eyebrow">Author profile</p>
+      <h1>Mavin Peter writes about building calm, reliable software with curiosity and precision.</h1>
+      <p>
+        Back-end engineering is the foundation, but the work extends into data, machine learning, and the craft of
+        turning complex ideas into systems people can trust.
+      </p>
     </div>
 
-    <div class="nav-wrap">
-      <div class="container d-flex justify-content-center position-relative">
-        <nav id="navmenu" class="navmenu">
-          <ul>
-            <li><a href="/" class="active">Home</a></li>
-            <li><a href="/author-profile/">Author Profile</a></li>
-           
-            <li><a href="/contact/">Contact</a></li>
-          </ul>
-          <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
-        </nav>
+    <div class="profile-card reveal">
+      <img src="{% static 'assets/img/person/ME.JPG' %}" alt="Mavin Peter">
+      <div>
+        <p class="profile-role">Back-end developer · Data-oriented builder</p>
+        <h2>Mavin Peter</h2>
+        <p>Python, Django, APIs, data science, machine learning, and thoughtful technical communication.</p>
       </div>
     </div>
+  </div>
+</section>
 
-  </header>
+<section class="page-section">
+  <div class="shell-container page-grid">
+    <article class="content-card reveal">
+      <p class="eyebrow">About</p>
+      <h2>Engineering with structure, evidence, and long-term thinking.</h2>
+      <p>
+        I work primarily in Python and Django, with a strong interest in how robust back-end systems, data workflows,
+        and machine learning ideas can reinforce each other. The blog exists as a place to document that process:
+        lessons from building, lessons from learning, and lessons from refining technical judgment.
+      </p>
+      <p>
+        Good software should feel composed. That principle shapes how I build products and how I write about them:
+        clear architecture, readable decisions, and enough depth to be genuinely useful.
+      </p>
+    </article>
 
-  <main class="main">
-
-    <!-- Page Title -->
-    <div class="page-title">
-
-      <div class="title-wrapper">
-        <h1>Author Profile</h1>
-        <p>Hi, I’m Mavin—a back-end developer and data scientist passionate about building scalable systems with Python and Django. I explore data science and machine learning, constantly learning and sharing insights on software development. Welcome to my blog.</p>
-      </div>
-    </div><!-- End Page Title -->
-
-    <!-- Author Profile Section -->
-    <section id="author-profile" class="author-profile section">
-
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
-
-        <div class="author-profile-1">
-
-          <div class="row">
-            <!-- Author Info -->
-            <div class="col-lg-4 mb-4 mb-lg-0">
-              <div class="author-card" data-aos="fade-up">
-                <div class="author-image">
-                  <img src="{% static 'assets/img/person/ME.JPG' %}" alt="Author" class="img-fluid rounded">
-                </div>
-
-                <div class="author-info">
-                  <h2>Mavin Peter</h2>
-                  <p class="designation">Blog Author</p>
-
-                  <div class="author-bio">
-                    Back-end developer specializing in Python and Django, with a keen interest in data science and machine learning. 
-                    Passionate about building scalable systems, exploring emerging technologies, and sharing insights through writing.
-                  </div>
-                  <div class="social-links">
-                    <a href="https://github.com/mavin321"><i class="bi bi-github"></i></a>
-                    <a href="https://www.linkedin.com/in/mavin-peter-65422725b/"><i class="bi bi-linkedin"></i></a>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Author Content -->
-            <div class="col-lg-8">
-              <div class="author-content" data-aos="fade-up" data-aos-delay="200">
-                <div class="content-header">
-                  <h3>About Me</h3>
-                </div>
-                <div class="content-body">
-                  <p>Hi, I’m Mavin—a passionate back-end developer specializing in Python and Django. My journey in software development has been driven by a love for solving complex problems and building scalable, efficient systems. I also explore data science and machine learning, constantly learning and applying new techniques to real-world challenges.
-
-                    Through this blog, I share insights, tutorials, and experiences in back-end development, data science, and programming in general. Whether you’re a beginner or an experienced developer, I hope you find valuable content that helps you grow in your coding journey.
-                    
-                    Let’s build, learn, and innovate together.
-                  </p>
-
-                  <div class="expertise-areas">
-                    <h4>Areas of Expertise</h4>
-                    <div class="tags">
-                      <span>Backend Development</span>
-                      <span>Data Science</span>
-                      <span>Python</span>
-                      <span>Machine Learning</span>
-                      <span>API development</span>
-                      <span>Future Tech Trends</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-          </div>
-
-        </div>
-
-      </div>
-
-    </section><!-- /Author Profile Section -->
-
-  </main>
-
-  <footer id="footer" class="footer">
-    <div class="container footer-top">
-      <div class="row gy-4">
-        <div class="col-lg-4 col-md-6 footer-about">
-          <a href="index.html" class="logo d-flex align-items-center">
-            <span class="sitename">Mavin321</span>
-          </a>
-          <div class="footer-contact pt-3">
-            <p>Nairobi, Kenya</p>
-            <p class="mt-3"><strong>Phone:</strong> <span>+254 714128700 </span></p>
-            <p><strong>Email:</strong> <span>mavinpeteromondi@gmail.com</span></p>
-          </div>
-          <div class="social-links d-flex mt-4">
-            <a href="https://github.com/mavin321"><i class="bi bi-github"></i></a>
-            <a href="https://www.linkedin.com/in/mavin-peter-65422725b/"><i class="bi bi-linkedin"></i></a>
-          </div>
-        </div>
-        <div class="col-lg-2 col-md-3 footer-links">
-          <h4>Useful Links</h4>
-          <ul>
-            <li><a href="https://mavin321.pythonanywhere.com">My website</a></li>
-            <li><a href="author-profile/">About me</a></li>
-          </ul>
+    <aside class="stacked-cards">
+      <div class="content-card reveal">
+        <p class="eyebrow">Focus areas</p>
+        <div class="tag-list">
+          <span>Back-end systems</span>
+          <span>Python</span>
+          <span>Django</span>
+          <span>APIs</span>
+          <span>Data science</span>
+          <span>Machine learning</span>
+          <span>Technical writing</span>
         </div>
       </div>
-    </div>
-  </footer>
 
-  <!-- Scroll Top -->
-  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
-
-  <!-- Preloader -->
-  <div id="preloader"></div>
-
-  <!-- Vendor JS Files -->
-  <script src="{% static 'assets/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
-  <script src="{% static 'assets/vendor/php-email-form/validate.js' %}"></script>
-  <script src="{% static 'assets/vendor/aos/aos.js' %}"></script>
-  <script src="{% static 'assets/vendor/swiper/swiper-bundle.min.js' %}"></script>
-  <script src="{% static 'assets/vendor/purecounter/purecounter_vanilla.js' %}"></script>
-  <script src="{% static 'assets/vendor/glightbox/js/glightbox.min.js' %}"></script>
-
-  <!-- Main JS File -->
-  <script src="{% static 'assets/js/main.js' %}"></script>
-
-</body>
-
-</html>
+      <div class="content-card reveal">
+        <p class="eyebrow">Find me</p>
+        <div class="contact-list">
+          <a href="https://github.com/mavin321" target="_blank" rel="noreferrer">GitHub</a>
+          <a href="https://www.linkedin.com/in/mavin-peter-65422725b/" target="_blank" rel="noreferrer">LinkedIn</a>
+          <a href="mailto:mavinpeteromondi@gmail.com">mavinpeteromondi@gmail.com</a>
+        </div>
+      </div>
+    </aside>
+  </div>
+</section>
+{% endblock %}

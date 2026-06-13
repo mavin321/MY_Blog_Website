@@ -1,0 +1,88 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>{{ page_title|default:"Mavin's Blog" }}</title>
+  <meta name="description" content="{{ page_description|default:'A premium editorial journal on engineering, software, data, and ideas.' }}">
+  <meta name="keywords" content="blog, python, django, backend, software engineering, data science, machine learning">
+  <link href="{% static 'assets/img/favicon.jpg' %}" rel="icon">
+  <link href="{% static 'assets/img/favicon.jpg' %}" rel="apple-touch-icon">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,700&display=swap" rel="stylesheet">
+  <link href="{% static 'assets/vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/css/main.css' %}" rel="stylesheet">
+  {% block extra_head %}{% endblock %}
+</head>
+<body class="{{ body_class|default:'' }}">
+  <div class="site-shell">
+    <header class="site-header" id="site-header">
+      <div class="shell-container site-header__inner">
+        <a href="{% url 'index' %}" class="brand-mark" aria-label="Mavin's Blog home">
+          <span class="brand-mark__seal">M</span>
+          <span class="brand-mark__text">
+            <strong>Mavin's Blog</strong>
+            <small>Engineering, systems, data, ideas</small>
+          </span>
+        </a>
+
+        <button class="mobile-nav-toggle" type="button" aria-expanded="false" aria-label="Toggle navigation">
+          <span></span>
+          <span></span>
+        </button>
+
+        <div class="site-header__nav" data-nav-panel>
+          <nav class="site-nav" aria-label="Primary">
+            <a href="{% url 'index' %}" class="{% if active_page == 'home' %}is-active{% endif %}">Journal</a>
+            <a href="{% url 'author' %}" class="{% if active_page == 'author' %}is-active{% endif %}">Author</a>
+            <a href="{% url 'contacts' %}" class="{% if active_page == 'contact' %}is-active{% endif %}">Contact</a>
+          </nav>
+
+          <div class="site-social">
+            <a href="https://github.com/mavin321" target="_blank" rel="noreferrer" aria-label="GitHub">
+              <i class="bi bi-github"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/mavin-peter-65422725b/" target="_blank" rel="noreferrer" aria-label="LinkedIn">
+              <i class="bi bi-linkedin"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main class="site-main">
+      {% block content %}{% endblock %}
+    </main>
+
+    <footer class="site-footer">
+      <div class="shell-container site-footer__inner">
+        <div class="site-footer__brand">
+          <p class="footer-kicker">Mavin's Blog</p>
+          <h2>A quiet place for technical writing, experiments, and well-structured ideas.</h2>
+        </div>
+
+        <div class="site-footer__links">
+          <a href="{% url 'index' %}">All posts</a>
+          <a href="{% url 'author' %}">About the author</a>
+          <a href="{% url 'contacts' %}">Start a conversation</a>
+          <a href="https://mavin321.pythonanywhere.com" target="_blank" rel="noreferrer">Portfolio</a>
+        </div>
+      </div>
+
+      <div class="shell-container site-footer__meta">
+        <p>Based in Nairobi, Kenya.</p>
+        <p>&copy; {% now "Y" %} Mavin Peter.</p>
+      </div>
+    </footer>
+  </div>
+
+  <a href="#" class="scroll-top" aria-label="Scroll to top">
+    <i class="bi bi-arrow-up"></i>
+  </a>
+
+  <script src="{% static 'assets/js/main.js' %}"></script>
+  {% block extra_js %}{% endblock %}
+</body>
+</html>
